@@ -7,12 +7,13 @@ public class Main {
     public static void main(String[] args) {
 
     }
+    
     //Поиск в глубину (Depth-first search, DFS)
     public static void dfs(int v) {
         used[v] = true;
-        for (int nv = 0; nv < vertexCount; nv++)
-            if (!used[nv] && matrixAdjacency[v][nv])
-                dfs(nv);
+        for (int i = 0; i < vertexCount; i++)
+            if (!used[i] && matrixAdjacency[v][i])
+                dfs(i);
     }
 
     //Поиск в ширину (Breadth-first search, BFS)
@@ -25,10 +26,10 @@ public class Main {
         queue[last++] = v;
         while (first < last) {
             v = queue[first++];
-            for (int nv = 0; nv < vertexCount; nv++) {
-                if (!used[nv] && matrixAdjacency[v][nv]) {
-                    used[nv] = true;
-                    queue[last++] = nv;
+            for (int i = 0; i < vertexCount; i++) {
+                if (!used[i] && matrixAdjacency[v][i]) {
+                    used[i] = true;
+                    queue[last++] = i;
                 }
             }
         }
